@@ -69,7 +69,7 @@ export const profile = {
     'Black Hole Theory',
   ],
   contact: {
-    emails: ['nb547@njit.edu', 'battulasaikiran2002@gmail.com'],
+    emails: ['battulasaikiran2002@gmail.com'],
     location: 'New Jersey, USA',
     formspreeId: 'YOUR_FORM_ID', // replace with your Formspree form ID
   },
