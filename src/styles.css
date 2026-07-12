@@ -66,8 +66,14 @@ nav{
   max-width:1000px;margin:0 auto;padding:.75rem 1.25rem;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
 }
-.brand{font-family:'Source Serif 4',serif;font-weight:700;font-size:1.1rem;color:var(--text)}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:'Source Serif 4',serif;font-weight:700;font-size:1.1rem;color:var(--text)}
 .brand:hover{text-decoration:none;color:var(--accent)}
+.brand-icon{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:9px;flex-shrink:0;
+  background:var(--accent);color:#fff;
+  font-family:'Source Serif 4',serif;font-weight:700;font-size:.9rem;letter-spacing:.02em;
+}
 .nav-links{display:flex;align-items:center;gap:1.4rem;list-style:none}
 .nav-links a{color:var(--muted);font-size:.92rem;font-weight:500}
 .nav-links a:hover{color:var(--accent);text-decoration:none}
