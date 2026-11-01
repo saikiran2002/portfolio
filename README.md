@@ -31,14 +31,7 @@ This builds the site and publishes `dist/` to the `gh-pages` branch. Then in you
 
 All text lives in one typed file — `src/data/content.ts`: about, interests, publications, experience, education, news, contact.
 
-Two things still to fill in there:
-
-- Google Scholar URL (`socials`, currently `#`)
-- Formspree form ID (`contact.formspreeId`) — sign up free at formspree.io to activate the contact form
-
-Photo (`Profile.jpeg`) and CV (`saikiran-resume.pdf`) live in `public/`.
-
-`static-version.html` is the old single-file version, kept as a backup — safe to delete.
+Photo (`Profile.jpeg`), CV (`saikiran-resume.pdf`), and News photos/videos live in `public/`. Keep media small before adding it — e.g. resize photos to ~2000px on the long side (`sips -Z 2000 -s formatOptions 80 photo.jpeg`) and re-encode videos to 720p (`ffmpeg -i in.mp4 -vf scale=-2:720 -crf 26 -movflags +faststart out.mp4`).
 
 ## Performance notes
 

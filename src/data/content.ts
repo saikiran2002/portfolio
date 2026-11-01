@@ -4,6 +4,7 @@ export interface Publication {
   venue: string
   year: number
   doi?: string
+  link?: { label: string; url: string }
   note?: string
 }
 
@@ -24,6 +25,14 @@ export interface Education {
   gpaValue: string
   detail: string
   detailLink?: { label: string; url: string }
+}
+
+export interface Award {
+  date: string
+  category: string
+  title: string
+  description: string
+  url?: string
 }
 
 export interface NewsMedia {
@@ -71,19 +80,37 @@ export const profile = {
   contact: {
     emails: ['battulasaikiran2002@gmail.com'],
     location: 'New Jersey, USA',
-    formspreeId: 'YOUR_FORM_ID', // replace with your Formspree form ID
   },
 }
 
 export const publications: Publication[] = [
   {
     title:
-      'Divide and Concur: Design Study of a Multimodal, Real-Time Human-AI Collaboration Framework for Safeguarding Power Grids',
-    authors:
-      'N. D. S. Battula, C. Fitzpatrick, S. A. R. Naqvi, T. Yin, S. P. Nandanoori, K. Bhattacharjee, S. Kundu, A. Dasgupta',
-    venue: 'EuroVis',
+      'Relevance is not enough: A Communication-Oriented Retrieval System for Consequential Scientific Question Answering',
+    authors: 'A. Nakarmi, N. D. S. Battula, A. Diaz, A. Dasgupta',
+    venue: 'Conference on Empirical Methods in Natural Language Processing (EMNLP)',
     year: 2026,
-    note: 'Submitted',
+  },
+  {
+    title: 'Rationalize: Shared Semantic Reasoning for Human-AI Alignment',
+    authors: 'A. Dasgupta, N. D. S. Battula, A. Nakarmi, S. Sen, S. Ghosh, X. Song',
+    venue: 'arXiv preprint',
+    year: 2026,
+    link: { label: 'arXiv:2605.30632', url: 'https://arxiv.org/abs/2605.30632' },
+  },
+  {
+    title:
+      'A Scientist-in-the-Loop Data Analytics Framework for Intelligent Simulation Model Tuning and Validation',
+    authors: 'A. Dasgupta, N. D. S. Battula',
+    venue: 'New Jersey Institute of Technology',
+    year: 2025,
+  },
+  {
+    title: 'Surveying the role of visual analytics in human-machine teaming',
+    authors: 'N. D. S. Battula',
+    venue: "Master's Thesis, New Jersey Institute of Technology",
+    year: 2024,
+    link: { label: 'Thesis', url: 'https://digitalcommons.njit.edu/theses/2946/' },
   },
   {
     title:
@@ -106,6 +133,17 @@ export const publications: Publication[] = [
     venue: 'IEEE Delhi Section Conference (DELCON)',
     year: 2022,
     doi: 'https://doi.org/10.1109/DELCON54057.2022.9752991',
+  },
+]
+
+export const awards: Award[] = [
+  {
+    date: 'Sep 2026',
+    category: 'Challenge',
+    title: 'First Place, IEEE VIS 2026 VisXgenAI Challenge',
+    description:
+      'Won first place for an agentic pipeline that takes datasets and guiding questions as input and generates visual data reports as output. The work is presented at IEEE VIS 2026 in Boston.',
+    url: 'https://ieeevis.org/year/2026/program/content/56f42275-c01f-4d71-ba53-321afb82e483/',
   },
 ]
 
@@ -180,6 +218,11 @@ export const education: Education[] = [
 
 export const news: NewsItem[] = [
   {
+    date: 'May 2026',
+    year: 2026,
+    text: 'Completed my Ph.D. qualifying exam at NJIT.',
+  },
+  {
     date: '2026',
     year: 2026,
     text: 'AI Exploration Day: A student research showcase at NJIT, where I presented my work on Human-AI collaboration for safeguarding power grids.',
@@ -196,7 +239,7 @@ export const news: NewsItem[] = [
   {
     date: 'Nov 2025',
     year: 2025,
-    text: 'Siemens company visit related to Human-AI collaboration for safeguarding power grids, which is one of research collaboration with PNNL (Pacific Northwest National Laboratory)',
+    text: 'Visited Siemens to discuss Human-AI collaboration for safeguarding power grids, part of our research collaboration with PNNL (Pacific Northwest National Laboratory).',
   },
   {
     date: 'Jan 2025',

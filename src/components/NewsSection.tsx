@@ -20,7 +20,7 @@ export default function NewsSection() {
   }, [active])
 
   return (
-    <section id="news">
+    <section id="news" className="alt-bg">
       <div className="container">
         <Reveal>
           <h2 className="section-title">News</h2>

@@ -151,6 +151,25 @@ nav{
 .media-link:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 .media-link i{font-size:.8rem}
 
+/* ---------- Awards ---------- */
+.award-item{
+  display:grid;grid-template-columns:90px 1fr;gap:1.5rem;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:1.25rem 1.4rem;margin-bottom:1rem;box-shadow:var(--shadow);
+}
+.award-date{color:var(--muted);font-weight:600;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;padding-top:.15rem}
+.award-badge{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.15rem .7rem;border-radius:999px;font-size:.78rem;font-weight:600;
+  background:var(--accent-soft);border:1px solid var(--border);color:var(--accent);
+}
+.award-badge i{font-size:.72rem}
+.award-item h3{font-size:1.15rem;margin:.5rem 0 .3rem;line-height:1.4}
+.award-item h3 a{color:var(--text)}
+.award-item h3 a:hover{color:var(--accent);text-decoration:none}
+.award-item h3 i{font-size:.7rem;color:var(--muted);vertical-align:middle}
+.award-item p{color:var(--muted);font-size:.93rem}
+
 /* ---------- Lightbox ---------- */
 .lightbox{
   position:fixed;inset:0;z-index:200;
@@ -185,6 +204,7 @@ nav{
   border:3px solid var(--bg);z-index:2;
 }
 .tl-item:nth-child(even) .tl-dot{right:auto;left:-8px}
+.alt-bg .tl-dot{border-color:var(--bg-alt)}
 .tl-item.current .tl-dot{animation:blink 1.4s ease-in-out infinite}
 @keyframes blink{
   0%,100%{box-shadow:0 0 0 0 var(--glow)}
@@ -223,19 +243,8 @@ nav{
 .edu-side .yrs{font-size:.85rem;color:var(--muted);margin-top:.4rem;white-space:nowrap}
 
 /* ---------- Contact ---------- */
-.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:3rem;align-items:start}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-label{font-size:.88rem;font-weight:600;display:block;margin:1rem 0 .35rem}
-input,textarea{
-  width:100%;padding:.7rem .9rem;border-radius:8px;border:1px solid var(--border);
-  background:var(--card);color:var(--text);font-family:inherit;font-size:.95rem;
-}
-input:focus,textarea:focus{outline:2px solid var(--accent);border-color:transparent}
-textarea{min-height:150px;resize:vertical}
-.contact-info h3{font-size:1.1rem;margin-bottom:.75rem}
 .contact-info p{color:var(--muted);font-size:.95rem;margin-bottom:.5rem}
 .contact-info i{color:var(--accent);width:22px}
-#form-status{margin-top:.75rem;font-size:.9rem}
 
 footer{
   border-top:1px solid var(--border);padding:1.5rem 0;text-align:center;
@@ -243,9 +252,8 @@ footer{
 }
 
 /* ---------- Mobile ---------- */
-@media (max-width:820px){
-  .hero{grid-template-columns:1fr;gap:2rem}
-  .profile-card{max-width:340px;margin:0 auto}
+/* Nav collapses earlier than the rest of the layout — seven links need ~960px */
+@media (max-width:960px){
   .nav-links{
     display:none;position:absolute;top:100%;left:0;right:0;
     flex-direction:column;gap:0;background:var(--bg);
@@ -255,7 +263,11 @@ footer{
   .nav-links li{width:100%}
   .nav-links a{display:block;padding:.8rem 1.5rem}
   #hamburger{display:block}
-  .year-group{grid-template-columns:1fr;gap:.5rem}
+}
+@media (max-width:820px){
+  .hero{grid-template-columns:1fr;gap:2rem}
+  .profile-card{max-width:340px;margin:0 auto}
+  .year-group,.award-item{grid-template-columns:1fr;gap:.5rem}
   .timeline::before{left:8px}
   .tl-item,.tl-item:nth-child(even){width:100%;left:0;padding:0 0 2rem 2rem}
   .tl-dot,.tl-item:nth-child(even) .tl-dot{left:0;right:auto}
@@ -267,8 +279,6 @@ footer{
   .edu-side .gpa{font-size:1.05rem}
   .edu-side .gpa-val{display:inline}
   .edu-side .yrs{margin-top:0}
-  .contact-grid{grid-template-columns:1fr}
-  .form-row{grid-template-columns:1fr}
   section{padding:3rem 0}
   #about{padding-top:6.5rem}
 }

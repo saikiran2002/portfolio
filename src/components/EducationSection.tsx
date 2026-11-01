@@ -3,7 +3,7 @@ import { education } from '../data/content'
 
 export default function EducationSection() {
   return (
-    <section id="education" className="alt-bg">
+    <section id="education">
       <div className="container">
         <Reveal>
           <h2 className="section-title">Education</h2>

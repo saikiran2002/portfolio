@@ -1,6 +1,7 @@
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Publications from './components/Publications'
+import AwardsSection from './components/AwardsSection'
 import ExperienceSection from './components/ExperienceSection'
 import EducationSection from './components/EducationSection'
 import NewsSection from './components/NewsSection'
@@ -14,6 +15,7 @@ export default function App() {
       <main>
         <Hero />
         <Publications />
+        <AwardsSection />
         <ExperienceSection />
         <EducationSection />
         <NewsSection />

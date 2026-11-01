@@ -40,6 +40,14 @@ export default function Publications() {
                             </a>
                           </>
                         )}
+                        {p.link && (
+                          <>
+                            {' · '}
+                            <a href={p.link.url} target="_blank" rel="noreferrer">
+                              {p.link.label}
+                            </a>
+                          </>
+                        )}
                       </div>
                     </div>
                   ))}

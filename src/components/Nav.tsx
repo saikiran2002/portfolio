@@ -4,6 +4,7 @@ import { useTheme } from '../hooks/useTheme'
 const LINKS = [
   { href: '#about', label: 'About Me' },
   { href: '#publications', label: 'Publications' },
+  { href: '#awards', label: 'Awards' },
   { href: '#experience', label: 'Experience' },
   { href: '#education', label: 'Education' },
   { href: '#news', label: 'News' },
