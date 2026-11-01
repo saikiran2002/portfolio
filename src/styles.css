@@ -125,6 +125,10 @@ nav{
   transition:background .2s,border-color .2s,color .2s;cursor:default;
 }
 .chip:hover{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.chip-scene{cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:.45rem}
+.chip-scene i{font-size:.78rem;color:var(--accent)}
+.chip-scene.active,.chip-scene.active:hover{background:var(--accent);border-color:var(--accent);color:#0b0f1f}
+.chip-scene.active i{color:inherit}
 
 /* ---------- Publications & News ---------- */
 .alt-bg{background:var(--bg-alt)}
@@ -169,6 +173,65 @@ nav{
 .award-item h3 a:hover{color:var(--accent);text-decoration:none}
 .award-item h3 i{font-size:.7rem;color:var(--muted);vertical-align:middle}
 .award-item p{color:var(--muted);font-size:.93rem}
+
+/* ---------- Cosmic scenes (Interests chips) ---------- */
+/* Declared after the light/dark palettes so a scene wins over either theme */
+html[data-scene]{
+  --bg:#03050d;
+  --bg-alt:transparent; /* no section bands over the scene — their hard edges read as extra planes */
+  --card:rgba(12,18,40,.8);
+  --text:#e6ecfa;
+  --muted:#a9b6d3;
+  --accent:#8fb2ff;
+  --accent-2:#c3d4ff;
+  --accent-soft:rgba(40,60,120,.5);
+  --border:rgba(130,160,230,.22);
+  --shadow:0 4px 20px rgba(0,0,0,.45);
+  --chip-bg:rgba(20,30,64,.75);
+  --glow:rgba(143,178,255,.5);
+  background:#02030a;
+}
+html[data-scene="blackhole"]{
+  --card:rgba(14,8,28,.8);
+  --accent:#c49bff;
+  --accent-2:#e3d0ff;
+  --accent-soft:rgba(90,50,160,.45);
+  --border:rgba(190,150,255,.22);
+  --chip-bg:rgba(30,16,56,.7);
+  --glow:rgba(180,130,255,.5);
+  background:#05020d;
+}
+html[data-scene] body{background:transparent}
+html[data-scene] main{text-shadow:0 1px 10px rgba(0,0,0,.7)}
+html[data-scene] .tl-dot{border-color:#03050d}
+html[data-scene] .btn{color:#0b0f1f}
+html[data-scene] .btn,html[data-scene] .chip-scene.active{text-shadow:none}
+.cosmic-bg{
+  position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;
+  animation:cosmic-in .8s ease both;
+}
+@keyframes cosmic-in{from{opacity:0}to{opacity:1}}
+.scene-pill{
+  position:fixed;left:50%;bottom:1.25rem;transform:translateX(-50%);z-index:150;
+  display:flex;align-items:center;gap:.6rem;white-space:nowrap;
+  padding:.4rem .45rem .4rem 1rem;border-radius:999px;font-size:.85rem;
+  background:rgba(6,9,22,.85);border:1px solid var(--border);color:var(--text);
+  box-shadow:var(--shadow);animation:cosmic-in .4s ease both;
+}
+.scene-pill > i{color:var(--accent)}
+.scene-hint{color:var(--muted)}
+@media (hover: none), (max-width:600px){
+  .scene-hint{display:none}
+}
+.scene-pill button{
+  display:inline-flex;align-items:center;gap:.35rem;cursor:pointer;
+  padding:.3rem .8rem;border-radius:999px;border:1px solid var(--border);
+  background:var(--accent-soft);color:var(--text);font-family:inherit;font-size:.8rem;font-weight:600;
+}
+.scene-pill button:hover{background:var(--accent);color:#0b0f1f}
+@media (prefers-reduced-motion: reduce){
+  .cosmic-bg,.scene-pill{animation:none}
+}
 
 /* ---------- Lightbox ---------- */
 .lightbox{

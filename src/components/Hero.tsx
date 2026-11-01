@@ -1,7 +1,19 @@
 import Reveal from './Reveal'
+import { SCENE_META, type Scene } from './CosmicBackground'
 import { profile } from '../data/content'
 
-export default function Hero() {
+// Interests that switch the page into an animated space background
+const INTEREST_SCENES: Record<string, Scene> = {
+  'Black Hole Theory': 'blackhole',
+  'Space Exploration': 'space',
+}
+
+interface HeroProps {
+  scene: Scene | null
+  onSceneChange: (scene: Scene | null) => void
+}
+
+export default function Hero({ scene, onSceneChange }: HeroProps) {
   return (
     <section id="about">
       <div className="container hero">
@@ -38,11 +50,29 @@ export default function Hero() {
           <div className="interests">
             <h3>Interests</h3>
             <div className="chips">
-              {profile.interests.map((int) => (
-                <span className="chip" key={int}>
-                  {int}
-                </span>
-              ))}
+              {profile.interests.map((int) => {
+                const target = INTEREST_SCENES[int]
+                if (!target) {
+                  return (
+                    <span className="chip" key={int}>
+                      {int}
+                    </span>
+                  )
+                }
+                const active = scene === target
+                return (
+                  <button
+                    key={int}
+                    className={`chip chip-scene${active ? ' active' : ''}`}
+                    aria-pressed={active}
+                    title={active ? 'Click to exit' : `Click for ${SCENE_META[target].label.toLowerCase()}`}
+                    onClick={() => onSceneChange(active ? null : target)}
+                  >
+                    <i className={SCENE_META[target].icon} />
+                    {int}
+                  </button>
+                )
+              })}
             </div>
           </div>
         </Reveal>
